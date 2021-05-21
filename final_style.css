@@ -1,0 +1,568 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: websitefont;
+    src: url(Fonts/Harabara.ttf);
+}
+
+body {
+    font-family: websitefont;
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: #333333;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
+nav {
+    color: white;
+}
+
+nav img {
+    margin-left: 780px;
+}
+
+nav h6 {
+    margin-right: 50%;
+}
+
+
+/* Footer Css */
+
+.blog-footer {
+    padding-top: 1rem;
+    color: #ffffff;
+    text-align: center;
+    background-color: #212529;
+    border-top: .05rem solid #e5e5e5;
+}
+
+footer {
+    display: block;
+}
+
+
+/* Login Form Css*/
+
+.loginform {
+    background: rgba(0, 123, 255, 0.3);
+    color: #333333;
+    border-radius: 1rem;
+    margin-top: 2rem;
+    display: block;
+    text-align: center;
+    width: auto;
+    height: 100%;
+}
+
+.loginform h2 {
+    padding-top: 2rem;
+}
+
+.loginform form {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    margin-top: 1rem;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+
+/* Login Credential styling*/
+
+.loginform form #password_error {
+    color: red;
+    font-size: 0.8rem;
+    padding-left: 8rem;
+}
+
+.loginform form #email_error {
+    color: red;
+    font-size: 0.8rem;
+    padding-left: 8rem;
+}
+
+.loginform form input {
+    border-radius: 0.5rem;
+    border: transparent;
+    margin-top: 0.5rem;
+}
+
+.loginform .login-btn {
+    border: 1px rgba(0, 123, 255) solid;
+    background-color: none;
+    color: rgba(0, 123, 255);
+    margin-left: 40px;
+}
+
+.loginform .login-btn:hover {
+    border: 1px blue solid;
+    background-color: rgba(0, 123, 255);
+    color: white;
+}
+
+.loginform form .forget_password a {
+    color: #333333;
+    text-decoration: none;
+    float: right;
+    margin-bottom: 1rem;
+}
+
+.loginform form .forget_password a:hover {
+    color: white;
+    text-decoration: none;
+    float: right;
+}
+
+.loginform form #login_email {
+    margin-left: 2rem;
+}
+
+.loginform form #google {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #ED2939;
+}
+
+.loginform form #google:hover {
+    background-color: #ED2939;
+    color: white;
+}
+
+.login_msg p {
+    color: red;
+    padding-top: 1rem;
+}
+
+
+/*Sign Up Form CSS*/
+
+.signupform {
+    background: rgba(39, 222, 191, 0.3);
+    border-radius: 1rem;
+    margin-top: 2rem;
+    display: block;
+    text-align: center;
+    width: auto;
+}
+
+.signupform h2 {
+    padding-top: 2rem;
+}
+
+.signupform form {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    margin-top: 1rem;
+    padding: 0 2rem;
+}
+
+.signupform form label {
+    margin-top: 0.5rem;
+}
+
+.signupform form input {
+    border-radius: 0.5rem;
+    border: transparent;
+    float: right;
+    margin-top: 0.5rem;
+}
+
+.signupform form .forget_password a {
+    color: #333333;
+    text-decoration: none;
+    float: right;
+}
+
+.signupform form .forget_password a:hover {
+    color: white;
+    text-decoration: none;
+    float: right;
+}
+
+.signupform form #login_email {
+    margin-left: 2rem;
+}
+
+.signupform form #google {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #ED2939;
+}
+
+.signupform form #google:hover {
+    background-color: #ED2939;
+    color: white;
+}
+
+.signupform form #signup {
+    width: auto;
+    margin-left: 8rem;
+    margin-top: 1rem;
+}
+
+.signupform form #google {
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-left: 5rem;
+    color: #ED2939;
+}
+
+.signupform form #linkedin {
+    margin-left: 5rem;
+}
+
+
+/* Signup Welcome CSS*/
+
+.signup {
+    text-align: center;
+    background: rgba(39, 222, 191, 0.3);
+    color: #333333;
+    border-radius: 1rem;
+    margin-top: 2rem;
+    display: block;
+    width: auto;
+}
+
+.signup #student {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #ED2939;
+}
+
+.signup #student:hover {
+    background-color: #ED2939;
+    color: white;
+}
+
+.signup #teacher {
+    margin-bottom: 1rem;
+}
+
+
+/* Forget Password Form Css*/
+
+.forgetpasswordform {
+    background: rgba(0, 123, 255, 0.3);
+    color: #333333;
+    border-radius: 1rem;
+    margin-top: 2rem;
+    display: block;
+    text-align: center;
+    width: auto;
+    height: 100%;
+}
+
+.forgetpasswordform h3 {
+    margin-top: 2rem;
+}
+
+.forgetpasswordform input {
+    border-radius: 0.5rem;
+    border: transparent;
+    float: right;
+    margin-left: 1rem;
+}
+
+.forgetpasswordform #forgetpasswordsubmit {
+    margin: 1rem 0;
+}
+
+
+/* Query Page CSS*/
+
+.top {
+    margin: 1rem 0;
+}
+
+.top .top_left {
+    float: left;
+    padding-left: 40%;
+    text-decoration: none;
+    margin-top: 0;
+}
+
+.top .top_right {
+    float: right;
+    padding-right: 1rem;
+    text-decoration: none;
+    margin-top: 0;
+}
+
+.top .top_right a {
+    color: #333333;
+    text-decoration: none;
+}
+
+
+/* Query Page Post CSS*/
+
+.post form {
+    display: flex;
+}
+
+.post form input {
+    border-radius: 1rem;
+    width: 100%;
+    margin-right: 1rem;
+    border: 2px solid blue;
+}
+
+.post form button {
+    border-radius: 1rem;
+    background-color: black;
+    border: 2px solid blue;
+    color: white;
+    text-transform: uppercase;
+}
+
+.sidebar {
+    margin-left: 2rem;
+    border: 1px black solid;
+    border-radius: 1rem;
+    padding-top: 1rem;
+    height: 100%;
+    margin-top: 3rem;
+}
+
+.sidebar form {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    padding: 1rem;
+}
+
+.middle {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: 1px black solid;
+    border-radius: 1rem;
+    padding-top: 1rem;
+    height: auto;
+    padding: 1rem 2rem 0rem 2rem;
+}
+
+.question p {
+    background-color: #E0E0E0;
+    border: 1px black solid;
+    border-radius: 1rem;
+    padding: 1rem;
+    height: auto;
+}
+
+.answer {
+    margin-top: 1rem;
+}
+
+.answerdisplay {
+    border: 1px black solid;
+    border-radius: 1rem;
+    padding: 1rem;
+    height: auto;
+    margin: 1rem 0;
+}
+
+.answers {
+    background-color: #E0E0E0;
+    border-radius: 1rem;
+    padding: 1rem;
+    height: auto;
+}
+
+.reply form {
+    display: flex;
+}
+
+.reply form input {
+    border-radius: 1rem;
+    width: 100%;
+    margin-right: 1rem;
+    border: 2px red solid;
+}
+
+.reply form button {
+    border-radius: 1rem;
+    background-color: black;
+    border: 2px solid blue;
+    color: white;
+    text-transform: uppercase;
+}
+
+
+/*User Profile*/
+
+.user-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.user-block .user-img img {
+    border: 2px #333333 solid;
+    border-radius: 50%;
+    width: 9rem;
+    height: 9rem;
+}
+
+.user-block .user-info {
+    border: 2px #af9b9b solid;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: left;
+    letter-spacing: 1px;
+    margin: 1rem 0;
+}
+
+.user-block .user-buttons a {
+    background-color: none;
+}
+
+
+/*Profile edit*/
+
+.editform {
+    background: rgba(0, 123, 255, 0.3);
+    border-radius: 1rem;
+    margin-top: 2rem;
+    display: block;
+    text-align: center;
+    width: auto;
+    height: 100%;
+}
+
+.editform h2 {
+    padding-top: 2rem;
+}
+
+.editform form {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    padding: 0 2rem;
+}
+
+.editform form label {
+    margin-top: 0.5rem;
+}
+
+.editform form input {
+    border-radius: 0.5rem;
+    border: transparent;
+    float: right;
+    margin-top: 0.5rem;
+}
+
+.editform form .forget_password a {
+    color: #333333;
+    text-decoration: none;
+    float: right;
+}
+
+.editform form .forget_password a:hover {
+    color: white;
+    text-decoration: none;
+    float: right;
+}
+
+.editform form #login_email {
+    margin-left: 2rem;
+}
+
+.editform form #profile_picture {
+    width: auto;
+    margin-left: 2.5rem;
+}
+
+.editform form #update_user_profile {
+    width: auto;
+    margin-left: 8rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+
+/*User Activities*/
+
+.user-activities-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.user-activities-block .user-img img {
+    border: 2px #333333 solid;
+    border-radius: 50%;
+}
+
+.user-activities-block .user-activities-info {
+    border: 2px #af9b9b solid;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: left;
+    letter-spacing: 1px;
+    margin: 1rem 0;
+}
+
+.user-activities-block .user-activities-info td a {
+    text-align: center;
+    width: 100%;
+}
+
+.user-activities-block .user-buttons a {
+    background-color: none;
+}
+
+
+/* Update Password Form Css*/
+
+.updatepasswordform {
+    background: rgba(0, 123, 255, 0.3);
+    color: #333333;
+    border-radius: 1rem;
+    margin-top: 2rem;
+    display: block;
+    text-align: center;
+    width: auto;
+    height: 100%;
+}
+
+.updatepasswordform h3 {
+    margin-top: 2rem;
+}
+
+.updatepasswordform label {
+    margin-top: 0.5rem;
+}
+
+.updatepasswordform input {
+    border-radius: 0.5rem;
+    border: transparent;
+    float: right;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+}
+
+.updatepasswordform #updatepasswordsubmit {
+    margin: 1rem 0;
+}
+
+.email_verify_otp {
+    display: none;
+}
+
+.field_error {
+    color: red;
+}
