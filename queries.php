@@ -44,22 +44,30 @@ if(isset($_GET['filter_submit'])){
     // echo $question_sqli;
   
 }
+
 else{
     $year= $_SESSION['Year'];
     $stream= $_SESSION['Stream'];
     $semester= $_SESSION['Semester'];
     $question_sqli="Select queries.*, users.*, stream.*,year.*,semester.* from queries, users, stream, year, semester where queries.Student_Id=users.id and queries.year='$year' and queries.semester='$semester' and queries.stream='$stream' and year.Year_Id='$year' and semester.Semester_Id='$semester' and stream.Stream_Id='$stream' order by Query_Id desc";
     //  echo $question_sqli;
-    //  die();
  
 }
-    
+if(isset($_POST['search_question'])){
+    $year= $_SESSION['Year'];
+    $stream= $_SESSION['Stream'];
+    $semester= $_SESSION['Semester'];
+    $str=mysqli_real_escape_string($con,$_POST['search']);
+    $question_sqli="Select queries.*, users.*, stream.*,year.*,semester.* from queries, users, stream, year, semester where queries.Student_Id=users.id and queries.year='$year' and queries.semester='$semester' and queries.stream='$stream' and year.Year_Id='$year' and semester.Semester_Id='$semester' and stream.Stream_Id='$stream' and queries.Question LIKE '%$str%'";
+    // echo $question_sqli;
+}
 
     //Submit Question
 if(isset($_POST['question_submit'])){
 
     $question=get_safe_data($con,$_POST['question']);
-    $insert_question_sql="Insert into queries(Student_Id,student_name,Question,year,stream,semester) values('$id','$name','$question','$year','$stream','$semester')";
+    $date=date('Y-m-d');
+    $insert_question_sql="Insert into queries(Student_Id,student_name,Question,year,stream,semester,Posted_On) values('$id','$name','$question','$year','$stream','$semester','$date')";
     mysqli_query($con,$insert_question_sql);
    header("location:queries.php");
 }
@@ -67,8 +75,9 @@ if(isset($_POST['question_submit'])){
 if(isset($_POST['answer_submit']))
 {
     $answer=get_safe_data($con,$_POST['answer']);
+    $date=date('Y-m-d');
     $question_id2=$_POST['hidden_questionid'];
-    $insert_answer_sql="Insert into answers(question_id,answer,answer_student_name,answer_year,answer_stream,answer_semester,student_id) values('$question_id2','$answer','$name','$year','$stream','$semester','$id')";
+    $insert_answer_sql="Insert into answers(question_id,answer,answer_student_name,answer_year,answer_stream,answer_semester,student_id,Posted_On) values('$question_id2','$answer','$name','$year','$stream','$semester','$id','$date)";
     mysqli_query($con,$insert_answer_sql);
     ?>
 <script type="text/javascript">
@@ -84,7 +93,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 
 ?>
-
+<div class="main_content">
 <div class="container-fluid">
     <div class="row">
         <div class="top">
@@ -147,6 +156,12 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <div>
                     <p id="field_error"></p>
                 </div>
+
+                
+            </form>
+            <form action="" method="post">
+                <input type="text" placeholder=" Write your question here" name="search">
+                <button type="submit" class="btn btn-outline-primary" name="search_question">Search Question</button>
             </form>
         </div>
         <div class=" col-lg-6 offset-1" id="getting_queries">
@@ -164,6 +179,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                      $post_sem=$question_row['Semester'];
                      $post_stream=$question_row['Stream'];
                      $post_name=$question_row['name'];
+                     $post_date=$question_row['Posted_On'];
 
                  }
                  ?>
@@ -177,6 +193,9 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         </h5>
                         <p style="color:red">
                             <?php echo $post_stream .','.' '.$post_year.'th Year,'.' '.$post_sem.'th Sem,';?>
+                        </p>
+                        <p style="color:red">
+                            Posted On <?php echo $post_date ;?>
                         </p>
                     </div>
                     <div class="question">
@@ -219,6 +238,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         $answer_sem=$answer_row['Semester'];
                         $answer_stream=$answer_row['Stream'];
                         $answer_name=$answer_row['answer_student_name'];
+                        $answer_post_date=$answer_row['Posted_On'];
                     }?>
                         <div class="answerdisplay">
                             <em class="fas fa-user-circle"></em>
@@ -231,6 +251,9 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 <h6 style="color:blue">
                                     <?php echo $answer_stream .','.' '.$answer_year.'th Year,'.' '.$answer_sem.'th Sem,';?>
                                 </h6>
+                                <p>
+                                   Posted On <?php echo $answer_post_date;?>
+                                </p>
                                 <p>
                                     <?php echo $answer;?>
                                 </p>
@@ -247,7 +270,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
         </div>
     </div>
 
-
+    </div>
     <?php 
  include_once('includes/footer.php');
   ?>

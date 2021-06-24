@@ -20,7 +20,7 @@ include_once('includes/header.php');
           <button type="submit" class="btn btn-outline-primary" id="forgetpasswordsubmit"> Submit</button><br>
           
         </form>
-      <a href="login.php"> <em class="fas fa-arrow-circle-left"></em></a> 
+      <a href="login.php"> Login</a> 
       </div>
     
      

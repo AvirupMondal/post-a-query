@@ -66,9 +66,9 @@ include_once('includes/header.php');
 // }
 ?>
 <div class="container-fluid">
-  <div class="row"> 
+  <div class="row login_mid"> 
     <div class="img-block col-lg-4 offset-2">
-      <img class="img-fluid rounded " src="images/login-img.jpg" alt="Login with your credentials">
+      <img class="img-fluid rounded " src="images/bg1-01.png" alt="Login with your credentials">
     </div>
 
     <div class="loginform col-lg-4 offset-1">

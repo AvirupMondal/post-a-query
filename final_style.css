@@ -226,12 +226,14 @@ footer {
 
 .signup {
     text-align: center;
-    background: rgba(39, 222, 191, 0.3);
+    background: rgba(0, 123, 255, 0.3);
     color: #333333;
     border-radius: 1rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
     display: block;
     width: auto;
+    height: 100%;
+    padding-top: 2rem;
 }
 
 .signup #student {
@@ -261,6 +263,7 @@ footer {
     text-align: center;
     width: auto;
     height: 100%;
+    padding: 1rem 3rem 3rem 3rem;
 }
 
 .forgetpasswordform h3 {
@@ -333,6 +336,8 @@ footer {
     padding-top: 1rem;
     height: 100%;
     margin-top: 3rem;
+    background-color: #ffffff;
+    box-shadow: 4px 4px;
 }
 
 .sidebar form {
@@ -342,6 +347,12 @@ footer {
     padding: 1rem;
 }
 
+.login_mid{
+    margin-top: 8rem;
+}
+.signup_mid{
+    margin-top: 8rem;
+}
 .middle {
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -350,6 +361,24 @@ footer {
     padding-top: 1rem;
     height: auto;
     padding: 1rem 2rem 0rem 2rem;
+}
+
+.main_content{
+    background-image: url('images/bg4-01-01.png');
+    min-height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+    
+}
+
+.mid_content{
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 4px 4px;
 }
 
 .question p {
@@ -406,6 +435,7 @@ footer {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    
 }
 
 .user-block .user-img img {
