@@ -1,5 +1,9 @@
 <?php
 include_once('includes/header.php');
+$sql="select * from stream";
+$result = mysqli_query($con,$sql);
+$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
 ?>
 
   <div class="container-fluid">
@@ -50,21 +54,33 @@ include_once('includes/header.php');
             <span class="field_error" id="college_id_error"></span>
           </div>
           <div class="inpuBox">
-            <label >Year</label>
-            <input type="text" name="year" id="year">
-            <span class="field_error" id="year_error"></span>
-          </div>
-          <div class="inpuBox">
-            <label >Semester</label>
-            <input type="text" name="semester" id="semester">
-            <span class="field_error" id="semester_error"></span>
-          </div>
-          <div class="inpuBox">
-            <label >Stream</label>
-            <input type="text" name="stream" id="stream">
-            <span class="field_error" id="stream_error"></span>
-          </div>
-          
+          <label>Select Stream</label>
+                <select id="stream" name="stream" onchange="FetchYear(this.value)"  required>
+                    <option value="-1">Choose</option>
+                    <?php
+							foreach($data as $stream){
+								?>
+                    <option value="<?php echo $stream['Stream_Id']?>">
+                        <?php echo $stream['Stream']?>
+                    </option>
+                    <?php
+							}
+							?>
+                </select> </div>
+                <div class="inpuBox">
+                <label>Select Year</label>
+                <select id="year" name="year"  onchange="FetchSemester(this.value)"  required>
+                    <option>Select Year</option>
+
+                </select> </div>
+                <div class="inpuBox">
+                <label>Select Semester</label>
+                <select id="semester" name="semester" onchange="FetchSubject(this.value)"  required>
+                    <option value="1" selected>Select Semester</option>
+
+                </select>
+                </div>
+                
          
           <button type="button" class="btn btn-outline-primary" id="signup" onclick="registration()"> <em class="fas fa-user-plus"></em> Sign Up</button>
         </form>
@@ -170,6 +186,34 @@ include_once('includes/header.php');
         }
     }
 
+  function FetchYear(id){
+    $('#year').html('');
+    $('#semester').html('<option>Select Semester</option>');
+    
+    $.ajax({
+      type:'post',
+      url: 'filter.php',
+      data : { stream_id : id},
+      success : function(data){
+         $('#year').html(data);
+      }
+
+    })
+  }
+
+  function FetchSemester(id){ 
+    $('#semester').html('');
+    
+    $.ajax({
+      type:'post',
+      url: 'filter.php',
+      data : { year_id : id},
+      success : function(data){
+         $('#semester').html(data);
+      }
+
+    })
+  }
 
 </script>
 <?php 
