@@ -77,7 +77,7 @@ if(isset($_POST['answer_submit']))
     $answer=get_safe_data($con,$_POST['answer']);
     $date=date('Y-m-d');
     $question_id2=$_POST['hidden_questionid'];
-    $insert_answer_sql="Insert into answers(question_id,answer,answer_student_name,answer_year,answer_stream,answer_semester,student_id,Posted_On) values('$question_id2','$answer','$name','$year','$stream','$semester','$id','$date')";
+    $insert_answer_sql="Insert into answers(question_id,answer,answer_student_name,answer_year,answer_stream,answer_semester,student_id,Posted_On,likes,dislikes) values('$question_id2','$answer','$name','$year','$stream','$semester','$id','$date','0','0')";
     echo $insert_answer_sql;
     
     mysqli_query($con,$insert_answer_sql);
@@ -238,12 +238,16 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     
                     if($answer_check >0)
                     {
+                        $answer_id=$answer_row['answer_id'];
                         $answer=$answer_row['answer'];
                         $answer_year=$answer_row['Year'];
                         $answer_sem=$answer_row['Semester'];
                         $answer_stream=$answer_row['Stream'];
                         $answer_name=$answer_row['answer_student_name'];
                         $answer_post_date=$answer_row['Posted_On'];
+                        $answer_likes=$answer_row['likes'];
+                        $answer_dislikes=$answer_row['dislikes'];
+                        
                     }?>
                         <div class="answerdisplay">
                             <em class="fas fa-user-circle"></em>
@@ -262,6 +266,12 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 <p>
                                     <?php echo $answer;?>
                                 </p>
+                                <a href="javascript:void(0)" class="btn btn-outline-success">
+						        <span class="far fa-grin" onclick="like_update('<?php echo $answer_id?>')"> Support The Answer (<span id="like_loop_<?php echo $answer_id?>"><?php echo $answer_likes?></span>)</span>
+					            </a>
+                                <a href="javascript:void(0)" class="btn btn-warning">
+						<span class="far fa-frown-open" onclick="dislike_update('<?php echo $answer_id?>')"> Don't Support The Answer (<span id="dislike_loop_<?php echo $answer_id?>"><?php echo $answer_dislikes?></span>)</span>
+					</a>
                             </div>
                         </div>
                         <?php } ?>
@@ -322,7 +332,33 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     })
   }
-
+  function like_update(id){
+			jQuery.ajax({
+				url:'like_dislike_update.php',
+				type:'post',
+				data:'type=like&id='+id,
+				success:function(result){
+					var cur_count=jQuery('#like_loop_'+id).html();
+					cur_count++;
+					jQuery('#like_loop_'+id).html(cur_count);
+			
+				}
+			});
+		}	
+		
+		function dislike_update(id){
+			jQuery.ajax({
+				url:'like_dislike_update.php',
+				type:'post',
+				data:'type=dislike&id='+id,
+				success:function(result){
+					var cur_count=jQuery('#dislike_loop_'+id).html();
+					cur_count++;
+					jQuery('#dislike_loop_'+id).html(cur_count);
+			
+				}
+			});
+		}
   
   
 </script>

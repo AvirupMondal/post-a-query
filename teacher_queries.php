@@ -51,7 +51,7 @@ if(isset($_POST['answer_submit']))
     $answer=get_safe_data($con,$_POST['answer']);
     $question_id2=$_POST['hidden_questionid'];
     $date=date('Y-m-d');
-    $insert_answer_sql="Insert into answers(question_id,answer,answer_student_name,answer_year,answer_semester,answer_stream,Posted_On,student_id) values('$question_id2','$answer','$name','17','4','7','$date','$id')";
+    $insert_answer_sql="Insert into answers(question_id,answer,answer_student_name,answer_year,answer_semester,answer_stream,Posted_On,student_id,likes,dislikes) values('$question_id2','$answer','$name','17','4','7','$date','$id','0','0')";
     mysqli_query($con,$insert_answer_sql);
     ?>
     <script type="text/javascript">
@@ -67,7 +67,7 @@ $sql="select * from stream";
 $result = mysqli_query($con,$sql);
 $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
-
+<div class="main_content">
 <div class="container-fluid">
     <div class="row"> 
        <div class="top"> 
@@ -181,7 +181,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                  $answer_sem='';
                  $answer_stream='';
                  $answer_name='';
-                 $answer_sqli="Select answers.*, stream.*, year.*, semester.* from  answers,year,semester,stream where question_id='$question_id' and answers.answer_year=year.Year_Id and answers.answer_stream=stream.Stream_Id and answers.answer_semester=semester.Semester_Id";
+                 $answer_sqli="Select answers.*, stream.*, year.*, semester.* from  answers,year,semester,stream where answers.question_id='$question_id' and answers.answer_year=year.Year_Id and answers.answer_stream=stream.Stream_Id and answers.answer_semester=semester.Semester_Id";
                 //  echo $answer_sqli;
                  $answer_res=mysqli_query($con,$answer_sqli);
                  $answer_check=mysqli_num_rows($answer_res);
@@ -194,13 +194,20 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     
                     if($answer_check >0)
                     {
+                        $answer_id=$answer_row['answer_id'];
                         $answer=$answer_row['answer'];
                         $answer_year=$answer_row['Year'];
                         $answer_sem=$answer_row['Semester'];
                         $answer_stream=$answer_row['Stream'];
                         $answer_name=$answer_row['answer_student_name'];
                         $answer_post_date=$answer_row['Posted_On'];
+                        $answer_likes=$answer_row['likes'];
+                        $answer_dislikes=$answer_row['dislikes'];
+                        
+                        
                     }
+                    
+                                
                     
                     ?>
                         <div class="answerdisplay">
@@ -220,8 +227,13 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 <p>
                                     <?php echo $answer;?>
                                 </p>
-                                
                                
+                                <a href="javascript:void(0)" class="btn btn-outline-success">
+						        <span class="far fa-grin" onclick="like_update('<?php echo $answer_id?>')"> Support The Answer (<span id="like_loop_<?php echo $answer_id?>"><?php echo $answer_likes?></span>)</span>
+					            </a>
+                                <a href="javascript:void(0)" class="btn btn-warning">
+						<span class="far fa-frown-open" onclick="dislike_update('<?php echo $answer_id?>')"> Don't Support The Answer (<span id="dislike_loop_<?php echo $answer_id?>"><?php echo $answer_dislikes?></span>)</span>
+					</a>
                             </div>
                         </div>
                         <?php } ?>
@@ -235,6 +247,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
         </div>
     </div>
 
+    </div>
     </div>
     <?php 
     include_once('includes/inner_footer.php');
