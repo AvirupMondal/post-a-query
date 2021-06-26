@@ -27,16 +27,18 @@ if(isset($_POST['submit']))
         }
 }
 
-    $sqli="Select * from users where id='$Id'";
+    $sqli="Select users.*, stream.*,year.*,semester.* from users, stream, year, semester where users.id='$Id' and users.year=year.Year_Id and users.semester=semester.Semester_Id and users.stream=stream.Stream_Id ";
+    // echo $sqli;
+    // die();
     $res=mysqli_query($con,$sqli);
    
         $row=mysqli_fetch_assoc($res);
         $student_name=$row['name'];
         $student_college_id=$row['college_id'];
         $student_college_name=$row['college_name'];
-        $student_semester=$row['semester'];
-        $student_year=$row['year'];
-        $student_stream=$row['stream'];
+        $student_semester=$row['Semester'];
+        $student_year=$row['Year'];
+        $student_stream=$row['Stream'];
         $student_email=$row['email'];
         $student_image=$row['image'];
 
@@ -59,7 +61,7 @@ if(isset($_POST['submit']))
                     <img class="img-fluid" src="user_image/<?php echo $student_image ?>" alt="this is my image" >
                     <form method="post" enctype="multipart/form-data">
                     <input type="file" name="editimage" class="form-control" style="margin-top: 1rem; border: 1px #0275dB solid; margin-bottom:1rem" >
-                    <button type="submit" name="submit" class="btn btn-outline-primary" >Change Profile Picture</button>
+                    <button type="submit" name="submit" class="btn btn-outline-primary" >Click To Update Pic</button>
                     </form>
                 </div>
                 <div class="user-info col-lg-4">

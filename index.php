@@ -1,82 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Dynamic Dependent Select Box using jQuery, Ajax and PHP</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post A Query</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="final_style.css">
+    <script src="https://kit.fontawesome.com/4c872ebd2d.js" crossorigin="anonymous"></script>
 </head>
-<body>
-<?php
-  include_once 'config.php';
-  $query = "SELECT * FROM country Order by country_name";
-  $result = $db->query($query);
-?>
-<div class="container">
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-    <form>
-        <div class="form-group">
-          <label for="email">Country</label>
-          <select name="country" id="country" class="form-control" onchange="FetchState(this.value)"  required>
-            <option value="">Select Country</option>
-          <?php
-            if ($result->num_rows > 0 ) {
-               while ($row = $result->fetch_assoc()) {
-                echo '<option value='.$row['id'].'>'.$row['country_name'].'</option>';
-               }
-            }
-          ?> 
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="pwd">State</label>
-          <select name="state" id="state" class="form-control" onchange="FetchCity(this.value)"  required>
-            <option>Select State</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="pwd">City</label>
-          <select name="city" id="city" class="form-control">
-            <option>Select City</option>
-          </select>
-        </div>
-      </form>
+<body style="overflow-y:hidden">
+  <div class="container-fluid">
+    <div class="row welcome_body">
+    <img src="images/logo.png" class="col-6 paq" style="width:15rem; height:15rem " alt="">
+      <h3 class="text-center">POST A QUERY</h3>
+      <h5 class="text-center">Solution to All Your Queries</h5>
+      <div id="secondsdisplay">
+      
+      </div> <img src="images/bg3-01.png" style="height:600px" class="col-12" alt="">
+      </div>
   </div>
-  </div>
-</div>
-<script type="text/javascript">
-  function FetchState(id){
-    $('#state').html('');
-    $('#city').html('<option>Select City</option>');
-    $.ajax({
-      type:'post',
-      url: 'ajaxdata.php',
-      data : { country_id : id},
-      success : function(data){
-         $('#state').html(data);
-      }
-
-    })
-  }
-
-  function FetchCity(id){ 
-    $('#city').html('');
-    $.ajax({
-      type:'post',
-      url: 'ajaxdata.php',
-      data : { state_id : id},
-      success : function(data){
-         $('#city').html(data);
-      }
-
-    })
-  }
-
   
-</script>
+      
+    
+  <script>
+    var seconds=5;
+    function displayseconds(){
+      seconds -=1;
+      document.getElementById("secondsdisplay").innerText="This Page Will Be Redirected in "+seconds+" Seconds ...";
+    }
+    setInterval(displayseconds,1000);
+    function pageredirect(){
+      window.location="login.php"
+    }
+    setTimeout('pageredirect()',4000);
+  </script>
 </body>
 </html>

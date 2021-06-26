@@ -1,7 +1,9 @@
 <footer class="blog-footer mt-auto">
       <div class="row">
-        <p class="col-lg-3">&copy Post A Query</p>
-        <p class="col-lg-3 offset-lg-6">
+        <p class="col-lg-3">&copy Post A Query || Solution To All Your Queires</p>
+        <p class="col-lg-3">Designed By: Bikram Saha</p>
+        <p class="col-lg-3">Developed By: Avirup Mondal</p>
+        <p class="col-lg-3">
           <a href="#">Back to top</a>
         </p>
      

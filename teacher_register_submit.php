@@ -15,7 +15,7 @@ if($check>0){
 else{
   
       
-      $insert_sql="Insert into users(name,email,password,teacher) values('$name','$email','$password','1')";
+      $insert_sql="Insert into users(name,email,password,teacher,stream,year,semester) values('$name','$email','$password','1','7','17','4')";
       mysqli_query($con,$insert_sql);
     
   

@@ -77,7 +77,9 @@ if(isset($_POST['answer_submit']))
     $answer=get_safe_data($con,$_POST['answer']);
     $date=date('Y-m-d');
     $question_id2=$_POST['hidden_questionid'];
-    $insert_answer_sql="Insert into answers(question_id,answer,answer_student_name,answer_year,answer_stream,answer_semester,student_id,Posted_On) values('$question_id2','$answer','$name','$year','$stream','$semester','$id','$date)";
+    $insert_answer_sql="Insert into answers(question_id,answer,answer_student_name,answer_year,answer_stream,answer_semester,student_id,Posted_On) values('$question_id2','$answer','$name','$year','$stream','$semester','$id','$date')";
+    echo $insert_answer_sql;
+    
     mysqli_query($con,$insert_answer_sql);
     ?>
 <script type="text/javascript">
@@ -159,10 +161,13 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                 
             </form>
+            <h3 class="text-center">OR</h3>
             <form action="" method="post">
                 <input type="text" placeholder=" Write your question here" name="search">
-                <button type="submit" class="btn btn-outline-primary" name="search_question">Search Question</button>
+                <button type="submit" style="margin-top:1rem" class="btn btn-outline-primary" name="search_question">Search Question</button>
             </form>
+
+            <a href="previous_year_question.php" class="btn btn-outline-primary" style="margin-bottom:1rem">Download Previous Year Questions</a>
         </div>
         <div class=" col-lg-6 offset-1" id="getting_queries">
             <div class="mid_content">
@@ -272,6 +277,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     </div>
     <?php 
+    include_once('includes/inner_footer.php');
  include_once('includes/footer.php');
   ?>
     <script type="text/javascript">

@@ -39,11 +39,15 @@ nav h6 {
     color: #ffffff;
     text-align: center;
     background-color: #212529;
-    border-top: .05rem solid #e5e5e5;
+    letter-spacing: 0.1rem;
 }
 
 footer {
     display: block;
+}
+footer .imp p{
+    text-align: center;
+   
 }
 
 
@@ -58,6 +62,7 @@ footer {
     text-align: center;
     width: auto;
     height: 100%;
+    
 }
 
 .loginform h2 {
@@ -346,6 +351,15 @@ footer {
     width: auto;
     padding: 1rem;
 }
+.sidebar h3 {
+    text-align: center;
+}
+.sidebar a {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    padding: 1rem;
+}
 
 .login_mid{
     margin-top: 8rem;
@@ -365,13 +379,10 @@ footer {
 
 .main_content{
     background-image: url('images/bg4-01-01.png');
-    min-height: 100%;
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+  min-height: 100%;
     
 }
 
@@ -595,4 +606,36 @@ footer {
 
 .field_error {
     color: red;
+}
+
+/*Welcome Page*/
+.welcome_body{
+    background-color: rgba(67, 152, 243, 0.788);
+    color: white;
+    letter-spacing: 0.3rem;
+    
+}
+.welcome_body h5{
+   
+    letter-spacing: 0.3rem;
+}
+.welcome_body img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5rem;
+}
+#secondsdisplay{
+    font-size: 3rem;
+    text-align: center;
+    color: #333333;
+
+}
+
+.paq{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    
 }

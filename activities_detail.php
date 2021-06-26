@@ -17,8 +17,8 @@ if(isset($_GET['id']) && $_GET['id']!=''){
  
 ?>
 
-<div class="container-fluid">
-    <div class="row"> 
+<div class="container-fluid main_content">
+    <div class="row  "> 
        <div class="top"> 
            <h3 class="top_left" >Welcome <?php echo $student_name ?></h3>
             <h4 class="top_right" ><a href="login.php">Log Out</a></h4>
@@ -26,11 +26,12 @@ if(isset($_GET['id']) && $_GET['id']!=''){
             <h4 class="top_right" ><a href="user_activities.php?id=<?php echo $student_id ?>"><i class="fas fa-arrow-circle-left"></i></a></h4>
         </div>
     </div>
-</div>
+
 
 <!--Question and Answer-->
-      <div class="container-fluid">
-          <div class="row">
+      
+          
+          <div class="row ">
             <?php
           while($question_row=mysqli_fetch_assoc($question_res)){
      
@@ -45,7 +46,7 @@ if(isset($_GET['id']) && $_GET['id']!=''){
    
      } ?>
 
-              <div class="middle col-lg-7 offset-2 ">
+              <div class="middle col-lg-7 offset-2 mid_content ">
               <div class="info">
                 <em class="fas fa-user-circle"></em>
                   <h5>Sl No. <?php echo $question_id ?></h5>
@@ -95,6 +96,7 @@ if(isset($_GET['id']) && $_GET['id']!=''){
             </div>
             <?php } ?>
           </div>
+          
       </div>
    
 

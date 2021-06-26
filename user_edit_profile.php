@@ -6,7 +6,7 @@ if(isset($_GET['id']) && $_GET['id']!=''){
   $image_required='';
   $Id=get_safe_data($con,$_GET['id']);
   
- $sqli="Select * from users where id='$Id'";
+  $sqli="Select users.*, stream.*,year.*,semester.* from users, stream, year, semester where users.id='$Id' and users.year=year.Year_Id and users.semester=semester.Semester_Id and users.stream=stream.Stream_Id ";
  $res=mysqli_query($con,$sqli);
   $check=mysqli_num_rows($res);
   if($check >0){
@@ -14,9 +14,9 @@ if(isset($_GET['id']) && $_GET['id']!=''){
         $student_names=$row['name'];
         $student_college_ids=$row['college_id'];
         $student_college_names=$row['college_name'];
-        $student_semesters=$row['semester'];
-        $student_years=$row['year'];
-        $student_streams=$row['stream'];
+        $student_semesters=$row['Semester'];
+        $student_years=$row['Year'];
+        $student_streams=$row['Stream'];
         $student_emails=$row['email'];
 }
   else{
