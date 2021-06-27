@@ -7,6 +7,8 @@ if(!isset($_SESSION['User_Login'])){
 	</script>
 	<?php
 }
+$college=$_SESSION['College_Name'];
+$department=$_SESSION['Stream'];
 if(isset($_GET['id']) && $_GET['id']!='')
 {
     $Id=get_safe_data($con,$_GET['id']);
@@ -26,13 +28,15 @@ if(isset($_POST['submit']))
         }
 }
 
-    $sqli="Select * from users where id='$Id'";
+    $sqli="Select users.*,college_list.*,stream.* from users,college_list,stream where users.id='$Id' and college_list.id='$college' and users.stream=stream.Stream_Id and stream.Stream_Id='$department'";
     $res=mysqli_query($con,$sqli);
    
         $row=mysqli_fetch_assoc($res);
         $student_name=$row['name'];
         $student_email=$row['email'];
         $student_image=$row['image'];
+        $student_college=$row['College_Name'];
+        $student_department=$row['Stream'];
 
 ?>
 
@@ -67,7 +71,14 @@ if(isset($_POST['submit']))
                             <th scope="col">Email: </th>
                             <td><?php echo  $student_email;?></td>
                         </tr>
-                                        
+                        <tr>
+                            <th scope="col">College: </th>
+                            <td><?php echo  $student_college;?></td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Department: </th>
+                            <td><?php echo  $student_department;?></td>
+                        </tr>           
                         
                     </tbody>
                     </table>

@@ -11,6 +11,7 @@ if(!isset($_SESSION['User_Login'])){
 //Session
 $id= $_SESSION['Id'];
     $name= $_SESSION['Name'];
+    $stream= $_SESSION['Stream'];
     
 //Question sql
     $question='';
@@ -31,8 +32,8 @@ if(isset($_GET['filter_submit'])){
 
 else{
    
-    $question_sqli="Select queries.*, users.*, stream.*,year.*,semester.* from queries, users, stream, year, semester where queries.Student_Id=users.id and queries.year=year.Year_Id and queries.semester=semester.Semester_Id and queries.stream=stream.Stream_Id order by Query_Id desc";
-    //  echo $question_sqli;
+    $question_sqli="Select queries.*, users.*, stream.*,year.*,semester.* from queries, users, stream, year, semester where queries.Student_Id=users.id and queries.year=year.Year_Id and queries.semester=semester.Semester_Id and queries.stream=stream.Stream_Id and queries.stream='$stream' order by Query_Id desc";
+     echo $question_sqli;
  
 }
 
@@ -51,7 +52,7 @@ if(isset($_POST['answer_submit']))
     $answer=get_safe_data($con,$_POST['answer']);
     $question_id2=$_POST['hidden_questionid'];
     $date=date('Y-m-d');
-    $insert_answer_sql="Insert into answers(question_id,answer,answer_student_name,answer_year,answer_semester,answer_stream,Posted_On,student_id,likes,dislikes) values('$question_id2','$answer','$name','17','4','7','$date','$id','0','0')";
+    $insert_answer_sql="Insert into answers(question_id,answer,answer_student_name,answer_year,answer_semester,answer_stream,Posted_On,student_id,likes,dislikes) values('$question_id2','$answer','$name','17','4','$stream','$date','$id','0','0')";
     mysqli_query($con,$insert_answer_sql);
     ?>
     <script type="text/javascript">
@@ -122,7 +123,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
             </form>
             
 
-            <a href="previous_year_question.php" class="btn btn-outline-primary" style="margin-bottom:1rem">Upload Previous Year Questions</a>
+            <a href="upload_previous_year_question.php"  class="btn btn-outline-primary" style="margin-bottom:1rem">Upload Previous Year Questions</a>
         </div>
         <div class=" col-lg-6 offset-1" id="getting_queries">
             <div class="mid_content">

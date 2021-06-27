@@ -1,5 +1,14 @@
 <?php
 include_once('includes/header.php');
+$sql="select * from stream";
+$result = mysqli_query($con,$sql);
+$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+//Fetching College Name
+
+$college_sql="select * from college_list";
+$college_result = mysqli_query($con,$college_sql);
+$college_data = mysqli_fetch_all($college_result, MYSQLI_ASSOC);
 ?>
   <div class="container-fluid">
     <div class="row"> 
@@ -37,7 +46,38 @@ include_once('includes/header.php');
             <input type="password" name="teacher_confirm_password" id="teacher_confirm_password" onchange="match_password()"><br>
             <span class="field_error" id="confirm_password_error"></span>
           </div>
-          
+          <div class="inpuBox">
+            <label >Select College</label>
+            <select id="college" name="college" required>
+                    <option value="-1">Select College</option>
+                    <?php
+							foreach($college_data as $college){
+								?>
+                    <option value="<?php echo $college['id']?>">
+                        <?php echo $college['College_Name']?>
+                    </option>
+                    <?php
+							}
+							?>
+                </select>
+            <span class="field_error" id="college_error"></span>
+          </div>
+          <div class="inpuBox">
+            <label >Select Department</label>
+            <select id="stream" name="stream" required>
+                    <option value="-1">Select Department</option>
+                    <?php
+							foreach($data as $stream){
+								?>
+                    <option value="<?php echo $stream['Stream_Id']?>">
+                        <?php echo $stream['Stream']?>
+                    </option>
+                    <?php
+							}
+							?>
+                </select>
+            <span class="field_error" id="department_error"></span>
+          </div>
          
           <button type="button" class="btn btn-outline-primary" id="signup" onclick="teacher_registration()"> <em class="fas fa-user-plus"></em> Sign Up</button>
         </form>

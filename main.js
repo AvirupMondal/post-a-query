@@ -40,7 +40,7 @@ function registration(){
     $('.field_error').html('');
         var name= jQuery("#name").val();
      var email= jQuery("#email").val();
-     var college_name= jQuery("#college_name").val();
+     var college_name= jQuery("#college").val();
      var college_id= jQuery("#college_id").val();
      var year= jQuery("#year").val();
      var semester= jQuery("#semester").val();
@@ -110,6 +110,8 @@ function teacher_registration(){
     var name= jQuery("#teacher_name").val();
     var email= jQuery("#teacher_email").val();
     var password= jQuery("#teacher_password").val();
+    var department= jQuery("#stream").val();
+    var college_name= jQuery("#college").val();
    
     var is_error='';
     if(name==""){
@@ -124,13 +126,21 @@ function teacher_registration(){
         $('#password_error').html("Enter your password");
         is_error='yes';
        }
+       if(department==""){
+        $('#department_error').html("Enter your Department");
+        is_error='yes';
+       }
+       if(college_name==""){
+        $('#college_error').html("Enter your College");
+        is_error='yes';
+       }
        
     if(is_error==''){
 
         jQuery.ajax({
             url: 'teacher_register_submit.php',
             type: 'post',
-            data: 'name='+name+ '&email='+email+ '&password='+password,
+            data: 'name='+name+ '&email='+email+ '&password='+password+ '&department='+department+ '&college_name='+college_name,
             success:function(result){
             if(result=='email_present'){
                  $('#email_error').html("Email ID Already Present");

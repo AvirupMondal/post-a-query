@@ -66,8 +66,9 @@ if(isset($_POST['search_question'])){
 if(isset($_POST['question_submit'])){
 
     $question=get_safe_data($con,$_POST['question']);
+    $sub=get_safe_data($con,$_POST['sub']);
     $date=date('Y-m-d');
-    $insert_question_sql="Insert into queries(Student_Id,student_name,Question,year,stream,semester,Posted_On) values('$id','$name','$question','$year','$stream','$semester','$date')";
+    $insert_question_sql="Insert into queries(Student_Id,student_name,Question,year,stream,semester,subject,Posted_On) values('$id','$name','$question','$year','$stream','$semester','$sub','$date')";
     mysqli_query($con,$insert_question_sql);
    header("location:queries.php");
 }
@@ -93,6 +94,11 @@ $sql="select * from stream";
 $result = mysqli_query($con,$sql);
 $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+//sub
+$sub_sql="select subject.*, stream.*,year.*,semester.* from subject,stream,year,semester where year.Year_Id='$year' and stream.Stream_Id='$stream' and semester.Semester_Id='$semester' and subject.Semester_Id=semester.Semester_Id";
+// echo $sub_sql;
+$sub_result = mysqli_query($con,$sub_sql);
+$sub_data = mysqli_fetch_all($sub_result, MYSQLI_ASSOC);
 
 ?>
 <div class="main_content">
@@ -113,6 +119,16 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
             <form action="" method="post" class="col-lg-7 offset-2">
                 <input type="text" placeholder=" Write your query here" name="question">
+               
+                <select id="sub" name="sub" required>
+                    <option value="-1">Choose Subject</option>
+                <?php
+                foreach($sub_data as $sub){
+                ?><option value="<?php echo $sub['Subject_Id']?>">
+                <?php echo $sub['Subject']?>
+            </option>
+                <?php } ?>
+                </select>
                 <button type="submit" class="btn btn-outline-primary col-lg-3" name="question_submit">Post</button>
             </form>
         </div>

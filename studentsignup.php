@@ -3,7 +3,11 @@ include_once('includes/header.php');
 $sql="select * from stream";
 $result = mysqli_query($con,$sql);
 $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+//Fetching College Name
 
+$college_sql="select * from college_list";
+$college_result = mysqli_query($con,$college_sql);
+$college_data = mysqli_fetch_all($college_result, MYSQLI_ASSOC);
 ?>
 
   <div class="container-fluid">
@@ -44,9 +48,20 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <span class="field_error" id="confirm_password_error"></span>
           </div>
           <div class="inpuBox">
-            <label >College Name</label>
-            <input type="name" name="college_name" id="college_name">
-            <span class="field_error" id="college_name_error"></span>
+            <label >Select College</label>
+            <select id="college" name="college" required>
+                    <option value="-1">Select College</option>
+                    <?php
+							foreach($college_data as $college){
+								?>
+                    <option value="<?php echo $college['id']?>">
+                        <?php echo $college['College_Name']?>
+                    </option>
+                    <?php
+							}
+							?>
+                </select>
+            <span class="field_error" id="college_error"></span>
           </div>
           <div class="inpuBox">
             <label >College Id</label>
