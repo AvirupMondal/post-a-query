@@ -49,14 +49,14 @@ if(isset($_POST['submit']))
  }
 ?>
 
-  <div class="container-fluid">
+  <div class="container">
     <div class="row"> 
 
-      <div class="img-block col-lg-4 offset-2">
+      <div class="img-block col-lg-6 col-md-6">
         <img class="img-fluid rounded " src="images/login-img.jpg" alt="Login with your credentials">
       </div>
 
-      <div class="updatepasswordform col-lg-4 offset-1">
+      <div class="updatepasswordform col-6">
         <h3>Forget Password</h3>
         <form action="" method="post">
           <div class="inpuBox">

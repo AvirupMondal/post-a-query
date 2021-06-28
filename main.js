@@ -3,6 +3,7 @@ function login_submit(){
     $('.field_error').html('');
     var email= jQuery("#login_email").val();
     var password= jQuery("#login_password").val();
+   
     var is_error='';
    
     if(email==""){

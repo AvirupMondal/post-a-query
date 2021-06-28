@@ -102,25 +102,25 @@ $sub_data = mysqli_fetch_all($sub_result, MYSQLI_ASSOC);
 
 ?>
 <div class="main_content">
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="top">
-            <h3 class="top_left">Welcome
+            <h3 class="top_left ">Welcome
                 <?php echo $_SESSION['Name'];?>
             </h3>
             <h4 class="top_right"><a href="logout.php">Log Out</a></h4>
-            <h4 class="top_right"><a href="user_profile.php?id=<?php echo $_SESSION['Id']; ?>">My Profile</a></h4>
+            <h4 class="top_right "><a href="user_profile.php?id=<?php echo $_SESSION['Id']; ?>">My Profile</a></h4>
         </div>
     </div>
 </div>
-<div class="container-fluid ">
+<div class="container">
     <div class="row">
-        <div class="post col-lg-7 offset-3">
+        <div class="post col-lg-9 offset-lg-2">
 
             <form action="" method="post" class="col-lg-7 offset-2">
                 <input type="text" placeholder=" Write your query here" name="question">
                
-                <select id="sub" name="sub" required>
+                <select id="sub" name="sub" required class="form_drop">
                     <option value="-1">Choose Subject</option>
                 <?php
                 foreach($sub_data as $sub){
@@ -135,9 +135,9 @@ $sub_data = mysqli_fetch_all($sub_result, MYSQLI_ASSOC);
     </div>
 </div>
 <!--Question and Answer-->
-<div class="container-fluid">
+<div class="container">
     <div class="row">
-        <div class="col-lg-2 sidebar">
+        <div class="col-lg-3 sidebar">
             <form method="get" action="">
                 <label>Select Stream</label>
                 <select id="stream" name="stream" onchange="FetchYear(this.value)"  required>
@@ -185,7 +185,7 @@ $sub_data = mysqli_fetch_all($sub_result, MYSQLI_ASSOC);
 
             <a href="previous_year_question.php" class="btn btn-outline-primary" style="margin-bottom:1rem">Download Previous Year Questions</a>
         </div>
-        <div class=" col-lg-6 offset-1" id="getting_queries">
+        <div class=" col-lg-7 offset-lg-1" id="getting_queries">
             <div class="mid_content">
                 <?php 
                  $question_res=mysqli_query($con,$question_sqli);
@@ -282,10 +282,10 @@ $sub_data = mysqli_fetch_all($sub_result, MYSQLI_ASSOC);
                                 <p>
                                     <?php echo $answer;?>
                                 </p>
-                                <a href="javascript:void(0)" class="btn btn-outline-success">
+                                <a href="javascript:void(0)" class="btn btn-outline-success" style="margin-bottom:0.3rem">
 						        <span class="far fa-grin" onclick="like_update('<?php echo $answer_id?>')"> Support The Answer (<span id="like_loop_<?php echo $answer_id?>"><?php echo $answer_likes?></span>)</span>
 					            </a>
-                                <a href="javascript:void(0)" class="btn btn-warning">
+                                <a href="javascript:void(0)" class="btn btn-warning" style="margin-bottom:0.3rem">
 						<span class="far fa-frown-open" onclick="dislike_update('<?php echo $answer_id?>')"> Don't Support The Answer (<span id="dislike_loop_<?php echo $answer_id?>"><?php echo $answer_dislikes?></span>)</span>
 					</a>
                             </div>

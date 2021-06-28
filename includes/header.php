@@ -16,10 +16,10 @@ include_once('includes/function.php');
 </head>
 <body class="d-flex flex-column min-vh-100">
     <!-- Image and text -->
-<nav class="navbar navbar-light bg-dark justify-content-center">
+<nav class="navbar navbar-light bg-dark">
     <div class="container-fluid">
     
-        <img src="images/logo.png" alt="" width="70" height="50" class="d-inline-block align-top">
+        <img src="images/logo.png" alt="" width="70" height="50" class="d-inline-block align-top img-fluid">
         <h6>Post A Query</h6>
      
     </div>

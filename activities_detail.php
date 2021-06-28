@@ -30,7 +30,7 @@ if(isset($_GET['id']) && $_GET['id']!=''){
 
 <!--Question and Answer-->
       
-          
+      <div class="container">  
           <div class="row ">
             <?php
           while($question_row=mysqli_fetch_assoc($question_res)){
@@ -46,7 +46,7 @@ if(isset($_GET['id']) && $_GET['id']!=''){
    
      } ?>
 
-              <div class="middle col-lg-7 offset-2 mid_content ">
+              <div class="middle col-lg-7 offset-lg-2 mid_content ">
               <div class="info">
                 <em class="fas fa-user-circle"></em>
                   <h5>Sl No. <?php echo $question_id ?></h5>
@@ -96,7 +96,7 @@ if(isset($_GET['id']) && $_GET['id']!=''){
             </div>
             <?php } ?>
           </div>
-          
+          </div>  
       </div>
    
 

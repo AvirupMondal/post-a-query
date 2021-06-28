@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="final_style.css">
     <script src="https://kit.fontawesome.com/4c872ebd2d.js" crossorigin="anonymous"></script>
 </head>
-<body style="overflow-y:hidden">
+<body style="">
   <div class="container-fluid">
     <div class="row welcome_body">
     <img src="images/logo.png" class="col-6 paq" style="width:15rem; height:15rem " alt="">
@@ -18,7 +18,7 @@
       <h5 class="text-center">Solution to All Your Queries</h5>
       <div id="secondsdisplay">
       
-      </div> <img src="images/bg3-01.png" style="height:600px" class="col-12" alt="">
+      </div> <img src="images/bg3-01.png" style="max-height:100%" class="col-12 img-fluid" alt="">
       </div>
   </div>
   

@@ -23,14 +23,14 @@ $question_check=mysqli_num_rows($question_res);
 </div>
 
 <!--Question and Answer-->
-      <div class="container-fluid">
+      <div class="container">
           <div class="row">
             <div class="user-activities-block">
                 <div class="user-img">
                     <img class="img-fluid" src="images/ID5907@2x.png" alt="" >
                    
                 </div>
-                <div class="user-activities-info col-lg-10">
+                <div class="user-activities-info col-lg-10 table-responsive">
                     <table class="table table-striped table-bordered">
                         <tbody>
                         <tr>

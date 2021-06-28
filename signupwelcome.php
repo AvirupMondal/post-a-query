@@ -1,14 +1,14 @@
 <?php
 include_once('includes/header.php');
 ?>
-  <div class="container-fluid">
+  <div class="container">
     <div class="row signup_mid"> 
 
-      <div class="img-block col-lg-4 offset-2">
+      <div class="img-block col-lg-6 col-md-6">
         <img class="img-fluid rounded " src="images/login-img.jpg" alt="Login with your credentials">
       </div>
 
-      <div class="signup col-lg-4 offset-1">
+      <div class="signup col-6">
         <h2>Sign Up</h2>
         <form action="" method="post">
           <a href="studentsignup.php" class="btn btn-outline-primary col-lg-8" id="student"><em class="fas fa-user-graduate"></em> SignUp as Student</a>

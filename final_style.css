@@ -21,15 +21,35 @@ body {
 
 nav {
     color: white;
+    max-width: auto;
 }
 
 nav img {
     margin-left: 780px;
 }
-
 nav h6 {
     margin-right: 50%;
 }
+@media screen and (max-width: 768px) {
+    nav img {
+        margin-left: 0rem;
+        display: block;
+  margin-left: auto;
+  
+    }
+    nav h6 {
+        margin-right: 25%;
+    }
+  }
+  @media screen and (max-width: 1440px) and (min-width: 769px) {
+    nav img {
+        margin-left: 45%;
+    }
+    nav h6 {
+        margin-right: 35%;
+    }
+  }
+
 
 
 /* Footer Css */
@@ -62,9 +82,16 @@ footer .imp p{
     text-align: center;
     width: auto;
     height: 100%;
+    margin-bottom: 2rem;
     
 }
-
+@media screen and (max-width: 600px) {
+    .loginform {
+        margin: 0.2rem;
+        
+    }
+    
+  }
 .loginform h2 {
     padding-top: 2rem;
 }
@@ -98,6 +125,7 @@ footer .imp p{
     border-radius: 0.5rem;
     border: transparent;
     margin-top: 0.5rem;
+    padding:0.3rem;
 }
 
 .loginform .login-btn {
@@ -239,8 +267,16 @@ footer .imp p{
     width: auto;
     height: 100%;
     padding-top: 2rem;
+    margin-bottom: 2rem;
 }
-
+@media screen and (max-width: 600px) {
+    .signup {
+        margin-bottom: 0.2rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+  }
 .signup #student {
     text-align: center;
     margin-bottom: 1rem;
@@ -269,8 +305,15 @@ footer .imp p{
     width: auto;
     height: 100%;
     padding: 1rem 3rem 3rem 3rem;
+    margin-bottom:2rem;
 }
-
+@media screen and (max-width: 600px) {
+    .forgetpasswordform {
+        margin: 0.2rem;
+        
+    }
+    
+  }
 .forgetpasswordform h3 {
     margin-top: 2rem;
 }
@@ -325,7 +368,12 @@ footer .imp p{
     margin-right: 1rem;
     border: 2px solid blue;
 }
-
+.post form .form_drop {
+    border-radius: 1rem;
+    width: 100%;
+    margin-right: 1rem;
+    border: 2px solid blue;
+}
 .post form button {
     border-radius: 1rem;
     background-color: black;
@@ -343,8 +391,16 @@ footer .imp p{
     margin-top: 3rem;
     background-color: #ffffff;
     box-shadow: 4px 4px;
+    max-width: 100%;
 }
-
+@media screen and (max-width: 768px) {
+    .sidebar {
+        max-width: 75%;
+        margin-left: 3rem;
+  
+    }
+   
+  }
 .sidebar form {
     display: flex;
     flex-direction: column;
@@ -362,7 +418,7 @@ footer .imp p{
 }
 
 .login_mid{
-    margin-top: 8rem;
+    margin-top: 5rem;
 }
 .signup_mid{
     margin-top: 8rem;
@@ -389,7 +445,7 @@ footer .imp p{
 .mid_content{
     background-color: #ffffff;
     border-radius: 1rem;
-    box-shadow: 4px 4px;
+    
 }
 
 .question p {
@@ -459,7 +515,7 @@ footer .imp p{
 .user-block .user-info {
     border: 2px #af9b9b solid;
     border-radius: 1rem;
-    padding: 2rem;
+    
     text-align: left;
     letter-spacing: 1px;
     margin: 1rem 0;
@@ -467,6 +523,7 @@ footer .imp p{
 
 .user-block .user-buttons a {
     background-color: none;
+    margin:0.5rem;
 }
 
 
@@ -480,8 +537,15 @@ footer .imp p{
     text-align: center;
     width: auto;
     height: 100%;
+    margin-bottom:2rem;
 }
-
+@media screen and (max-width: 600px) {
+    .editform {
+        margin: 0.2rem;
+        
+    }
+    
+  }
 .editform h2 {
     padding-top: 2rem;
 }
@@ -495,14 +559,15 @@ footer .imp p{
 }
 
 .editform form label {
-    margin-top: 0.5rem;
+    margin-top: 1rem;
 }
 
 .editform form input {
     border-radius: 0.5rem;
     border: transparent;
     float: right;
-    margin-top: 0.5rem;
+    margin-top: 0.3rem;
+    padding: 0.3rem;
 }
 
 .editform form .forget_password a {
@@ -551,7 +616,7 @@ footer .imp p{
 .user-activities-block .user-activities-info {
     border: 2px #af9b9b solid;
     border-radius: 1rem;
-    padding: 2rem;
+   
     text-align: left;
     letter-spacing: 1px;
     margin: 1rem 0;
@@ -564,6 +629,7 @@ footer .imp p{
 
 .user-activities-block .user-buttons a {
     background-color: none;
+    margin-bottom: 0.8rem;
 }
 
 
@@ -578,7 +644,15 @@ footer .imp p{
     text-align: center;
     width: auto;
     height: 100%;
+    margin-bottom: 2rem;
 }
+@media screen and (max-width: 600px) {
+    .updatepasswordform {
+        margin: 1rem auto;
+        
+    }
+    
+  }
 
 .updatepasswordform h3 {
     margin-top: 2rem;
@@ -631,7 +705,11 @@ footer .imp p{
     color: #333333;
 
 }
-
+@media screen and (max-width: 600px) {
+    #secondsdisplay {
+      font-size: 0.9rem;
+    }
+  }
 .paq{
     display: flex;
     justify-content: center;

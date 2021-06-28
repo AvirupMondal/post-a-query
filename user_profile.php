@@ -65,7 +65,7 @@ if(isset($_POST['submit']))
                     <button type="submit" name="submit" class="btn btn-outline-primary" >Click To Update Pic</button>
                     </form>
                 </div>
-                <div class="user-info col-lg-4">
+                <div class="user-info col-lg-4 table-responsive">
                     <table class="table table-striped">
                         <tbody>
                         <tr>

@@ -57,14 +57,14 @@ if(isset($_POST['submit']))
        
  }
 ?>
-  <div class="container-fluid">
+  <div class="container">
     <div class="row"> 
       
-      <div class="img-block col-lg-4 offset-2">
+      <div class="img-block col-lg-6 col-md-6">
         <img class="img-fluid rounded " src="images/editprofile.jpg" alt="Login with your credentials">
       </div>
 
-      <div class="editform col-lg-4 offset-1">
+      <div class="editform col-lg-6 col-md-6 ">
         <h2>Edit Profile</h2>
         <form action="" method="post">
           <div class="inpuBox">
@@ -105,7 +105,7 @@ if(isset($_POST['submit']))
           <a class="btn btn-outline-primary" href="user_profile.php?id=<?php echo $Id?>" style="margin-bottom: 1rem; text-align: center;
           margin-left: auto;">My Profile</a>
          
-      </div>
+        </div>
       </div>
     
      
