@@ -57,15 +57,15 @@ if(isset($_POST['submit']))
       </div>
 
       <div class="updatepasswordform col-6">
-        <h3>Forget Password</h3>
+        <h3>Change Password</h3>
         <form action="" method="post">
           <div class="inpuBox">
             <label>Old Password</label>
-            <input type="password" name="old_password" id="login_email">
+            <input type="password" name="old_password" id="login_email" required>
           </div>
           <div class="inpuBox">
             <label>New Password</label>
-            <input type="password" name="new_password" id="login_email">
+            <input type="password" name="new_password" id="login_email" required>
           </div>
           
           <button type="submit" name="submit" class="btn btn-outline-primary" id="updatepasswordsubmit"> Update</button><br>

@@ -7,7 +7,7 @@ if(!isset($_SESSION['User_Login'])){
 	</script>
 	<?php
 }
-$college=$_SESSION['College_Name'];
+
 if(isset($_GET['id']) && $_GET['id']!='')
 {
     $image_required='';
@@ -28,7 +28,7 @@ if(isset($_POST['submit']))
         }
 }
 
-    $sqli="Select users.*, stream.*,year.*,semester.*, college_list.* from users, stream, year, semester,college_list where users.id='$Id' and users.year=year.Year_Id and users.semester=semester.Semester_Id and college_list.id='$college'and users.stream=stream.Stream_Id ";
+    $sqli="Select users.*, stream.*,year.*,semester.*, college_list.* from users, stream, year, semester,college_list where users.id='$Id' and users.year=year.Year_Id and users.semester=semester.Semester_Id and users.college_name=college_list.id and users.stream=stream.Stream_Id ";
     // echo $sqli;
     // die();
     $res=mysqli_query($con,$sqli);
@@ -61,7 +61,7 @@ if(isset($_POST['submit']))
                 <div class="user-img">
                     <img class="img-fluid" src="user_image/<?php echo $student_image ?>" alt="this is my image" >
                     <form method="post" enctype="multipart/form-data">
-                    <input type="file" name="editimage" class="form-control" style="margin-top: 1rem; border: 1px #0275dB solid; margin-bottom:1rem" >
+                    <input type="file" name="editimage" class="form-control" style="margin-top: 1rem; border: 1px #0275dB solid; margin-bottom:1rem" required>
                     <button type="submit" name="submit" class="btn btn-outline-primary" >Click To Update Pic</button>
                     </form>
                 </div>

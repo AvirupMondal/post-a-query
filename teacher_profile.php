@@ -56,7 +56,7 @@ if(isset($_POST['submit']))
                 <div class="user-img">
                     <img class="img-fluid" src="user_image/<?php echo $student_image ?>" alt="this is my image" >
                     <form method="post" enctype="multipart/form-data">
-                    <input type="file" name="editimage" class="form-control" style="margin-top: 1rem; border: 1px #0275dB solid; margin-bottom:1rem" >
+                    <input type="file" name="editimage" class="form-control" style="margin-top: 1rem; border: 1px #0275dB solid; margin-bottom:1rem" required>
                     <button type="submit" name="submit" class="btn btn-outline-primary" >Change Profile Picture</button>
                     </form>
                 </div>

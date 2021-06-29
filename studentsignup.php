@@ -10,14 +10,14 @@ $college_result = mysqli_query($con,$college_sql);
 $college_data = mysqli_fetch_all($college_result, MYSQLI_ASSOC);
 ?>
 
-  <div class="container-fluid">
+  <div class="container">
     <div class="row"> 
       
-      <div class="img-block col-lg-4 offset-1">
+      <div class="img-block col-lg-6 col-md-6">
         <img class="img-fluid rounded " src="images/signup.jpg" alt="Login with your credentials">
       </div>
 
-      <div class="signupform col-lg-4 offset-1">
+      <div class="signupform col-lg-6 col-md-6">
         <h2>Sign Up</h2>
         <form action="" method="post">
           <div class="inpuBox">
@@ -27,7 +27,7 @@ $college_data = mysqli_fetch_all($college_result, MYSQLI_ASSOC);
           </div>
           <div class="inpuBox">
             <label >Student Email</label>
-            <input type="email" name="email" id="email">
+            <input type="email" name="email"  id="email">
             <span class="field_error" id="email_error"></span>
           </div>
           <div class="inpuBox"><button class="btn btn-outline-primary email_sent_otp" type="button" onclick="email_sent_otp()" >Send OTP</button></div>
@@ -103,6 +103,7 @@ $college_data = mysqli_fetch_all($college_result, MYSQLI_ASSOC);
 									<p class="form-messege field_error"></p>
 								</div>
         <p>Already an User?<a href="login.php"> LogIn</a></p>
+        <a href="signupwelcome.php"> <em class="fas fa-arrow-circle-left"></em></a> 
       </div>
     
      

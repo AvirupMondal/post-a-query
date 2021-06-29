@@ -33,7 +33,7 @@ if(isset($_GET['filter_submit'])){
 else{
    
     $question_sqli="Select queries.*, users.*, stream.*,year.*,semester.* from queries, users, stream, year, semester where queries.Student_Id=users.id and queries.year=year.Year_Id and queries.semester=semester.Semester_Id and queries.stream=stream.Stream_Id and queries.stream='$stream' order by Query_Id desc";
-     echo $question_sqli;
+    //  echo $question_sqli;
  
 }
 
@@ -69,7 +69,7 @@ $result = mysqli_query($con,$sql);
 $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
 <div class="main_content">
-<div class="container-fluid">
+<div class="container">
     <div class="row"> 
        <div class="top"> 
            <h3 class="top_left" >Welcome <?php echo $_SESSION['Name'];?></h3>
@@ -79,13 +79,13 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
     </div>
 </div>
 <!--Question and Answer-->
-<div class="container-fluid">
+<div class="container">
     <div class="row">
-        <div class="col-lg-2 sidebar">
+        <div class="col-lg-3 sidebar">
             <form method="get" action="">
                 <label>Select Stream</label>
                 <select id="stream" name="stream" onchange="FetchYear(this.value)"  required>
-                    <option value="-1">Choose</option>
+                    <option value="">Choose</option>
                     <?php
 							foreach($data as $stream){
 								?>
@@ -98,17 +98,17 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 </select>
                 <label>Select Year</label>
                 <select id="year" name="year"  onchange="FetchSemester(this.value)"  required>
-                    <option>Select Year</option>
+                    <option value="">Select Year</option>
 
                 </select>
                 <label>Select Semester</label>
                 <select id="semester" name="semester" onchange="FetchSubject(this.value)"  required>
-                    <option value="1" selected>Select Semester</option>
+                    <option value="" selected>Select Semester</option>
 
                 </select>
                 <label>Select Subject</label>
                 <select id="subject" name="subject">
-                    <option>Select Subject</option>
+                    <option value="">Select Subject</option>
                 </select>
 
                 <button style="margin-top:1rem" type="submit"  class="btn btn-outline-primary" 
@@ -125,7 +125,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
             <a href="upload_previous_year_question.php"  class="btn btn-outline-primary" style="margin-bottom:1rem">Upload Previous Year Questions</a>
         </div>
-        <div class=" col-lg-6 offset-1" id="getting_queries">
+        <div class=" col-lg-7 offset-lg-1" id="getting_queries">
             <div class="mid_content">
                 <?php 
                  $question_res=mysqli_query($con,$question_sqli);
@@ -168,7 +168,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                     <div class="reply">
                         <form action="" method="post" class="col-lg-7">
-                            <input type="text" placeholder=" Write your Answer here" name="answer">
+                            <input type="text" placeholder=" Write your Answer here" name="answer" required>
                             <input type="hidden" name="hidden_questionid" value="<?php echo  $question_id ?>">
                             <button type="submit" class="btn btn-outline-primary col-lg-3"
                                 name="answer_submit">Post</button>
@@ -229,10 +229,10 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                     <?php echo $answer;?>
                                 </p>
                                
-                                <a href="javascript:void(0)" class="btn btn-outline-success">
+                                <a href="javascript:void(0)" class="btn btn-outline-success"  style="margin-bottom:0.3rem">
 						        <span class="far fa-grin" onclick="like_update('<?php echo $answer_id?>')"> Support The Answer (<span id="like_loop_<?php echo $answer_id?>"><?php echo $answer_likes?></span>)</span>
 					            </a>
-                                <a href="javascript:void(0)" class="btn btn-warning">
+                                <a href="javascript:void(0)" class="btn btn-warning"  style="margin-bottom:0.3rem">
 						<span class="far fa-frown-open" onclick="dislike_update('<?php echo $answer_id?>')"> Don't Support The Answer (<span id="dislike_loop_<?php echo $answer_id?>"><?php echo $answer_dislikes?></span>)</span>
 					</a>
                             </div>

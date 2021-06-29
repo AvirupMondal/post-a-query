@@ -10,7 +10,14 @@ $question_id='';
 $question_sqli="Select * from queries where Student_Id='$Id'";
 $question_res=mysqli_query($con,$question_sqli);
 $question_check=mysqli_num_rows($question_res);
+$sqli="Select * from users where users.id='$Id' ";
+// echo $sqli;
+// die();
+$res=mysqli_query($con,$sqli);
 
+    $row=mysqli_fetch_assoc($res);
+    
+    $student_image=$row['image'];
 ?>
 
 <div class="container-fluid">
@@ -27,7 +34,7 @@ $question_check=mysqli_num_rows($question_res);
           <div class="row">
             <div class="user-activities-block">
                 <div class="user-img">
-                    <img class="img-fluid" src="images/ID5907@2x.png" alt="" >
+                <img class="img-fluid" src="user_image/<?php echo $student_image ?>" alt="this is my image" >
                    
                 </div>
                 <div class="user-activities-info col-lg-10 table-responsive">

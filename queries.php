@@ -118,10 +118,10 @@ $sub_data = mysqli_fetch_all($sub_result, MYSQLI_ASSOC);
         <div class="post col-lg-9 offset-lg-2">
 
             <form action="" method="post" class="col-lg-7 offset-2">
-                <input type="text" placeholder=" Write your query here" name="question">
+                <input type="text" placeholder=" Write your query here" name="question" required>
                
                 <select id="sub" name="sub" required class="form_drop">
-                    <option value="-1">Choose Subject</option>
+                    <option value="">Choose Subject</option>
                 <?php
                 foreach($sub_data as $sub){
                 ?><option value="<?php echo $sub['Subject_Id']?>">
@@ -141,7 +141,7 @@ $sub_data = mysqli_fetch_all($sub_result, MYSQLI_ASSOC);
             <form method="get" action="">
                 <label>Select Stream</label>
                 <select id="stream" name="stream" onchange="FetchYear(this.value)"  required>
-                    <option value="-1">Choose</option>
+                    <option value="">Choose</option>
                     <?php
 							foreach($data as $stream){
 								?>
@@ -154,17 +154,17 @@ $sub_data = mysqli_fetch_all($sub_result, MYSQLI_ASSOC);
                 </select>
                 <label>Select Year</label>
                 <select id="year" name="year"  onchange="FetchSemester(this.value)"  required>
-                    <option>Select Year</option>
+                    <option value="">Select Year</option>
 
                 </select>
                 <label>Select Semester</label>
                 <select id="semester" name="semester" onchange="FetchSubject(this.value)"  required>
-                    <option value="1" selected>Select Semester</option>
+                    <option value="" selected>Select Semester</option>
 
                 </select>
                 <label>Select Subject</label>
                 <select id="subject" name="subject">
-                    <option>Select Subject</option>
+                    <option value="">Select Subject</option>
                 </select>
 
                 <button style="margin-top:1rem" type="submit"  class="btn btn-outline-primary" 
@@ -179,7 +179,7 @@ $sub_data = mysqli_fetch_all($sub_result, MYSQLI_ASSOC);
             </form>
             <h3 class="text-center">OR</h3>
             <form action="" method="post">
-                <input type="text" placeholder=" Write your question here" name="search">
+                <input type="text" placeholder=" Write your question here" name="search" required>
                 <button type="submit" style="margin-top:1rem" class="btn btn-outline-primary" name="search_question">Search Question</button>
             </form>
 
@@ -228,7 +228,7 @@ $sub_data = mysqli_fetch_all($sub_result, MYSQLI_ASSOC);
 
                     <div class="reply">
                         <form action="" method="post" class="col-lg-7">
-                            <input type="text" placeholder=" Write your Answer here" name="answer">
+                            <input type="text" placeholder=" Write your Answer here" name="answer" required>
                             <input type="hidden" name="hidden_questionid" value="<?php echo  $question_id ?>">
                             <button type="submit" class="btn btn-outline-primary col-lg-3"
                                 name="answer_submit">Post</button>

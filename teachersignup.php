@@ -10,14 +10,14 @@ $college_sql="select * from college_list";
 $college_result = mysqli_query($con,$college_sql);
 $college_data = mysqli_fetch_all($college_result, MYSQLI_ASSOC);
 ?>
-  <div class="container-fluid">
+  <div class="container">
     <div class="row"> 
       
-      <div class="img-block col-lg-4 offset-2">
+      <div class="img-block col-lg-6 col-md-12">
         <img class="img-fluid rounded " src="images/signup.jpg" alt="Login with your credentials">
       </div>
 
-      <div class="signupform col-lg-4 offset-1">
+      <div class="signupform col-lg-6 col-md-6">
         <h2>Sign Up</h2>
         <form action="" method="post">
           <div class="inpuBox">
@@ -90,6 +90,7 @@ $college_data = mysqli_fetch_all($college_result, MYSQLI_ASSOC);
           <button type="submit" class="btn btn-outline-primary col-lg-8" id="linkedin"><em class="fab fa-linkedin"></em> Continue with Linkedin</button>
         </form> -->
         <p>Already an User?<a href="login.php"> LogIn</a></p>
+        <a href="signupwelcome.php"> <em class="fas fa-arrow-circle-left"></em></a> 
       </div>
     
      

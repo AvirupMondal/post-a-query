@@ -184,8 +184,16 @@ footer .imp p{
     display: block;
     text-align: center;
     width: auto;
+    margin-bottom: 2rem;
 }
-
+@media screen and (max-width: 768px) {
+    .signupform {
+        margin-bottom: 0.2rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+  }
 .signupform h2 {
     padding-top: 2rem;
 }
@@ -198,9 +206,13 @@ footer .imp p{
     margin-top: 1rem;
     padding: 0 2rem;
 }
+.signupform form .email_verify_otp{
+    margin-top:0.5rem;
+}
 
 .signupform form label {
-    margin-top: 0.5rem;
+    margin-top: 0.7rem;
+    margin-right: 1rem;
 }
 
 .signupform form input {
@@ -208,8 +220,26 @@ footer .imp p{
     border: transparent;
     float: right;
     margin-top: 0.5rem;
+    width: 12rem;
+    padding: 0.1rem;
 }
 
+.signupform form select {
+    border-radius: 0.5rem;
+    border: transparent;
+    float: right;
+    margin-top: 0.5rem;
+        width: 12rem;
+        padding: 0.1rem;
+}
+@media screen and (max-width: 375px) {
+    .signupform form input {
+        width: 6rem;
+    }
+    .signupform form select {
+        width: 6rem;
+    }
+  }
 .signupform form .forget_password a {
     color: #333333;
     text-decoration: none;
@@ -566,10 +596,26 @@ footer .imp p{
     border-radius: 0.5rem;
     border: transparent;
     float: right;
-    margin-top: 0.3rem;
-    padding: 0.3rem;
+    margin-top: 0.5rem;
+    width: 12rem;
+    padding: 0.1rem;
 }
-
+.editform form select {
+    border-radius: 0.5rem;
+    border: transparent;
+    float: right;
+    margin-top: 0.5rem;
+        width: 12rem;
+        padding: 0.1rem;
+}
+@media screen and (max-width: 375px) {
+    .editform form input {
+        width: 6rem;
+    }
+    .editform form select {
+        width: 6rem;
+    }
+  }
 .editform form .forget_password a {
     color: #333333;
     text-decoration: none;
@@ -611,6 +657,9 @@ footer .imp p{
 .user-activities-block .user-img img {
     border: 2px #333333 solid;
     border-radius: 50%;
+    
+    width: 9rem;
+    height: 9rem;
 }
 
 .user-activities-block .user-activities-info {
